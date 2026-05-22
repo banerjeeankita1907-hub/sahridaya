@@ -1,3 +1,3 @@
-# sahridaya
+# Sāhitya 
 
-[![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-ng96g9ge)
+*A digital sahṛdaya (connoisseur) that reads, analyses, and illuminates the alaṅkāras of classical Sanskrit poetry.*
