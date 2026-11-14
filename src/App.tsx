@@ -1,12 +1,13 @@
 import { useState, useCallback } from 'react';
-import { BookOpen, BarChart3, Library, Settings, ChevronLeft } from 'lucide-react';
+import { BookOpen, BarChart3, Library, Settings, ChevronLeft, Activity } from 'lucide-react';
 import LibraryPage from './pages/LibraryPage';
 import ReaderPage from './pages/ReaderPage';
 import DashboardPage from './pages/DashboardPage';
+import ChandasPage from './pages/ChandasPage';
 import { useScript } from './hooks/useData';
 import type { ScriptType } from './lib/types';
 
-type Page = 'library' | 'reader' | 'dashboard';
+type Page = 'library' | 'reader' | 'dashboard' | 'prosody';
 
 function App() {
   const [page, setPage] = useState<Page>('library');
@@ -83,6 +84,16 @@ function App() {
                 <span className="hidden sm:inline">Analysis</span>
               </button>
 
+              <button
+                onClick={() => setPage('prosody')}
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  page === 'prosody' ? 'bg-stone-700 text-amber-400' : 'hover:bg-stone-800 text-stone-300'
+                }`}
+              >
+                <Activity className="w-4 h-4" />
+                <span className="hidden sm:inline">Prosody Lab</span>
+              </button>
+
               <div className="w-px h-6 bg-stone-700 mx-2" />
 
               {/* Settings dropdown */}
@@ -140,6 +151,7 @@ function App() {
         {page === 'dashboard' && selectedTextId && (
           <DashboardPage textId={selectedTextId} />
         )}
+        {page === 'prosody' && <ChandasPage />}
       </main>
 
       {/* Footer */}
